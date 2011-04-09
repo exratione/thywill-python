@@ -35,7 +35,7 @@ var setupInput = function() {
 		var message = $("#sender textarea").val();
 		if( message ) {
 			thywill.send.fn(message);
-			$("#sender textarea").html("");
+			$("#sender textarea").val("");
 		}
 	});
 };
