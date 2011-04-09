@@ -1,16 +1,16 @@
 thywill-python
 --------------
 
-A simple Python/Javascript framework that glues together a Comet server, a web server, a web browser, and a standalone messaging application. These messaging applications built on top of thywill are Python (server) and Javascript (client) affairs in which the thywill framework manages client connections and asynchronous message delivery between server and clients. All the application has to deal with is everything else.
+thywill-python is a simple Python and Javascript framework that glues together a Comet server, a web server, and many client web browsers. Asynchronous messaging applications built on top of thywill-python are written in Python (server-side) and Javascript (client-side). The thywill-python framework manages client browser connections and message delivery, so that the application author can focus on everything else.
 
-thywill-python is the result of a newcomer's short exploration of (a) Python and (b) Comet techniques for pushing data to browsers over HTTP connections. The high-level thinking whilst doing this involved architectures to support multi-user HTML5/HTTP applications. e.g. games, the ubiquitous chat servers, client-side Javascript, AJAX, canvas, and the like. All the cool kids are using node.js for that these days, but it took long enough to learn that fact to be able to build thywill-python along the way.
+thywill-python is the result of a newcomer's short exploration of (a) Python and (b) Comet techniques for pushing data to browsers over HTTP connections. e.g. for applications such as multi-player games and chat servers built in modern web browsers using Javascript, AJAX, canvas, and the like. All the cool kids are using node.js for that these days, but it took long enough to learn that fact to be able to build thywill-python along the way.
 
-This is functional, documented, but prototype code, in other words. thywill-python may be a useful starting point for someone intending to build a messaging-based Comet server application, and who is determined to use Python for the job.
+This is functional, documented, but prototype code. The thywill-python packages may be a useful starting point for someone intending to build a messaging-based Comet server application, and who is determined to use Python for the job.
 
 Framework and Component Abstractions
 ------------------------------------
 
-thywill-python consists of glue code and a bootstrap framework to hold together some unknown future combination of server and client technologies, as well as support unknown future choices in communication APIs. It is structured as a set of component abstractions: on connection by a client browser, the chosen implementation of these component abstractions are managed in a bootstrap process wherein each component independently contributes configuration directives and Javascript code to load in the client.
+thywill-python consists of glue code and a bootstrap framework to hold together some unknown future combination of server and client technology choices. It is structured as a set of component abstractions: on connection by a client browser, implementations of these component abstractions are managed in a bootstrap process wherein each component independently contributes configuration and Javascript code to run in the client.
 
 The component abstractions and their present implementations are as follows:
 
