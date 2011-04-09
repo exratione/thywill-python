@@ -38,7 +38,7 @@ What it does: Manages logging for the framework and application.
 
 Implementation: standard Python logging.
 
-5) Push
+<h3>Push</h3>
 
 What it does: Manages sending asynchronous messages to specific clients, e.g. through a Comet server.
 
