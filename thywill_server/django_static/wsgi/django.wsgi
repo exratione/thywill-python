@@ -8,8 +8,8 @@ application = django.core.handlers.wsgi.WSGIHandler()
 
 # Add the thywill paths. Adjust appropriately if you are installing to a different location.
 paths = []
-paths.append('/var/www/thywill/thywill_server/src/')
-paths.append('/var/www/thywill/thywill_apps/src/')
+paths.append('/var/www/thywill-python/thywill_server/src/')
+paths.append('/var/www/thywill-python/thywill_apps/src/')
 for path in paths:
 	if path not in sys.path:
 		sys.path.append(path)

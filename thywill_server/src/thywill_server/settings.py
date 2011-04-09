@@ -5,7 +5,7 @@ Core settings for thywill. The components used are defined and provided with the
 # TODO: obtain settings from elsewhere; e.g. file, database.
 
 # Where is the thywill_server folder located?
-THYWILL_ROOT = '/var/www/thywill'
+THYWILL_ROOT = '/var/www/thywill-python'
 
 THYWILL_HOST = '184.73.179.223'
 

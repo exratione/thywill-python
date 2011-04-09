@@ -1,5 +1,5 @@
 -------------------------------------------------------------------
-THYWILL SERVER: ORBITED + DJANGO + APACHE + MYSQL
+THYWILL-PYTHON SERVER: ORBITED + DJANGO + APACHE + MYSQL
 --------------------------------------------------------------------
 
 This outlines one possible configuration for a secure thywill server, using largely Python-based software, and STOMP as the protocol for messaging, with all client traffic passing over encrypted connections.
@@ -65,7 +65,9 @@ openssl req -new -key orbited.key-with-pass -out orbited.csr
 openssl rsa -in orbited.key-with-pass -out orbited.key
 openssl x509 -req -days 365 -in orbited.csr -signkey orbited.key -out orbited.crt
 
-- Configuration directives as follows. Mix them into your /etc/orbited.cfg as you see fit:
+- Note that you may find that requests to Orbited on port 8443 won't work with snakeoil certificates - and will fail fairly silently - until you visit an Orbited url directly and click through whatever your browser warning is for invalid SSL certificates.
+
+- Configuration directives are as follows. Mix them into your /etc/orbited.cfg as you see fit:
 
 --------------------------
 
@@ -88,7 +90,7 @@ crt=/etc/orbited/orbited.crt
 * -> localhost:61613
 
 [static]
-s=/var/www/thywill/thywill_server/static/push/orbited_stomp
+s=/var/www/thywill-python/thywill_server/static/push/orbited_stomp
 
 [logging]
 debug=/var/log/orbited/debug.log
@@ -130,22 +132,22 @@ RewriteRule ^(.*)$ https://mydomain.com$1 [QSA,L]
 
 --------------------------
 
-Alias /robots.txt /var/www/thywill/thywill_server/static/robots.txt
-Alias /favicon.ico /var/www/thywill/thywill_server/static/favicon.ico
-Alias /static/ /var/www/thywill/thywill_server/static/
-Alias /apps/ /var/www/thywill/thywill_apps/static/
+Alias /robots.txt /var/www/thywill-python/thywill_server/static/robots.txt
+Alias /favicon.ico /var/www/thywill-python/thywill_server/static/favicon.ico
+Alias /static/ /var/www/thywill-python/thywill_server/static/
+Alias /apps/ /var/www/thywill-python/thywill_apps/static/
 
-<Directory /var/www/thywill/thywill_apps/static/>
+<Directory /var/www/thywill-python/thywill_apps/static/>
 Order deny,allow
 Allow from all
 </Directory>
 
-<Directory /var/www/thywill/thywill_server/static/>
+<Directory /var/www/thywill-python/thywill_server/static/>
 Order deny,allow
 Allow from all
 </Directory>
 
-WSGIScriptAlias / /var/www/thywill/thywill_server/django_static/wsgi/django.wsgi
+WSGIScriptAlias / /var/www/thywill-python/thywill_server/django_static/wsgi/django.wsgi
 
 --------------------------
 
@@ -162,14 +164,14 @@ FIREWALL
 THYWILL CODE
 --------------------------------------
 
-- Clone the git repository into /var/www/thywill
+- Clone the git repository into /var/www/thywill-python
 
 - If you change this location, you will have to adjust the various paths that assume it:
 	- in your Apache and Orbited configuration
 	- in the thywill_server/django_static/wsgi/django.wsgi file
 
 - To initialize various items (e.g. the Django database setup), run the rollowing commands:
-	- cd /var/www/thywill/thywill_server/src
+	- cd /var/www/thywill-python/thywill_server/src
 	- python initialize.py
 
 - Create a log directory, and give it suitable permissions:
@@ -186,7 +188,7 @@ THYWILL CONFIGURATION
 
 - In settings.py, you must set the values of:
 
-THYWILL_ROOT = /var/www/thywill
+THYWILL_ROOT = /var/www/thywill-python
 THYWILL_HOST = mydomain.com
 
 --------------------------------------

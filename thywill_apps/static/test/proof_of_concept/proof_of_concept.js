@@ -2,10 +2,11 @@
 // Set the callbacks for receipt of push messages
 
 thywill.push.onReceipt = function(message) {
-	
-	console.log(message);
+	$("#poc-output").append("<br/><span>" + $message + "</span>")
+	if( console.log ) {	
+		console.log(message);
+	}
 };
-
 thywill.push.onError = function(error) {
 
 	
@@ -14,15 +15,15 @@ thywill.push.onError = function(error) {
 // Set the callbacks for sending messages
 
 thywill.send.onConfirm = function(confirmation) {
-	
+	// do nothing
 }
-
 thywill.send.onError = function(error) {
-	
-	
+	if( console.log ) {
+		console.log(error);
+	}
 }
 
-// Functions to set up a trivial input form.
+// Set up a trivial input form.
 var setupInput = function() {
 	$("body").append(
 		'<div id="sender">' +
@@ -39,12 +40,12 @@ var setupInput = function() {
 	});
 };
 
-// Functions to set up an output canvas.
+// Set up an output area
 var setupOutput = function() {
-	
+	$("body").append('<div id="poc-output" style="margin-top: 10px; width: 500px; height: 200px; overflow: scroll; border: 1px solid #cccccc;"></div>');
 }
 
-// Set up the startup function and get things started.
+// Set the startup function and declare readiness.
 thywill.application.fn = function() {
 	setupInput();
 	setupOutput();
