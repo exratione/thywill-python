@@ -1,0 +1,35 @@
+{% extends 'master.html' %}
+
+{% block title %}{{ application_parameters.title }}{% endblock %}
+
+{% block js %}
+	{% for resource in config.bootstrap_resources %}
+		{% ifequal resource.type "javascript" %}
+<script src="{{ resource.resource }}" type="text/javascript"></script>
+		{% endifequal %}
+	{% endfor %}	
+	{% for resource in config.application_resources %}
+		{% ifequal resource.type "javascript" %}
+<script src="{{ resource.resource }}" type="text/javascript"></script>
+		{% endifequal %}
+	{% endfor %}	
+{% endblock %}
+
+{% block css %}
+	{% for resource in config.bootstrap_resources %}
+		{% ifequal resource.type "css" %}
+	<script src="{{ resource.resource }}" type="text/javascript"></script>
+		{% endifequal %}
+	{% endfor %}	
+	{% for resource in config.application_resources %}
+		{% ifequal resource.type "css" %}
+	<script src="{{ resource.resource }}" type="text/javascript"></script>
+		{% endifequal %}
+	{% endfor %}
+{% endblock %}
+
+{% block inline_js %}
+<script type="text/javascript">
+thywill.bootstrap.fn({{ config_json|safe }});
+</script>
+{% endblock %}
