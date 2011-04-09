@@ -4,7 +4,6 @@ thywill-python development setup on Windows
 Follow these instructions to set up a development environment on Windows for working with thywill-python.
 
 1) install GitTortoise
-
   * Which means installing msysgit
   * See: http://code.google.com/p/tortoisegit/
 
@@ -24,7 +23,7 @@ Follow these instructions to set up a development environment on Windows for wor
   * But this will fail on Twisted. See:
   * http://blog.eddsn.com/2010/05/unable-to-find-vcvarsall-bat/
   * This is a fairly long install of a GNU environment.
-  * If you installed MinGW for example to “C:\MinGW” then add “C:\MinGW\bin” to your path
+  * If you installed MinGW for example to "C:\MinGW" then add "C:\MinGW\bin" to your path
   * Have to download Twisted directly - the URL will be in the failed attempt
   * Put it into C:\Python27\Lib\site-packages and unzip it, then cd into the Twisted-* folder
   * Once there: python setup.py install build --compiler=mingw32
