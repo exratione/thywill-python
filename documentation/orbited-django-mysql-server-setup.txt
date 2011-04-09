@@ -25,7 +25,7 @@ Starting point: Fedora Core 14
 AWS AMI: ami-225aac4b
 
 --------------------------------------
-INSTALLATION
+INSTALLATION OF NECESSARY SOFTWARE
 --------------------------------------
 
 yum install python stomppy httpd mod_ssl Django monit mysql mysql-server MySQL-python mod_wsgi 
@@ -190,6 +190,14 @@ THYWILL CONFIGURATION
 
 THYWILL_ROOT = /var/www/thywill-python
 THYWILL_HOST = mydomain.com
+
+----------------------------------------
+ODDS AND ENDS
+----------------------------------------
+
+- You may need to install the simplejson Python package
+	- Docs at: http://simplejson.github.com/simplejson/
+	- Run at the command prompt: easy_install simplejson
 
 --------------------------------------
 KICK THE TIRES

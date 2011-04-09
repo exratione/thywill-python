@@ -7,7 +7,8 @@ Core settings for thywill. The components used are defined and provided with the
 # Where is the thywill_server folder located?
 THYWILL_ROOT = '/var/www/thywill-python'
 
-THYWILL_HOST = '184.73.179.223'
+# You will need to change this to point to the server you are running thywill on.
+THYWILL_HOST = 'mydomain.com'
 
 THYWILL_CONFIG = {
                   
@@ -50,7 +51,7 @@ THYWILL_CONFIG = {
         'level': 'debug',
     },
     
-    # an interface to the running application that uses thywill
+    # an interface to the running application built on top of thywill
     'application_interface': {
         'component': 'local_python',
         'application_package': 'thywill_apps.test.proof_of_concept'
