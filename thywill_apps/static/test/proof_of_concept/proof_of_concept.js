@@ -2,7 +2,7 @@
 // Set the callbacks for receipt of push messages
 
 thywill.push.onReceipt = function(message) {
-	$("#poc-output").append("<br/><span>" + $message + "</span>")
+	$("#poc-output").append("<br/><span>" + message + "</span>")
 	if( console.log ) {	
 		console.log(message);
 	}
@@ -42,7 +42,7 @@ var setupInput = function() {
 
 // Set up an output area
 var setupOutput = function() {
-	$("body").append('<div id="poc-output" style="margin-top: 10px; width: 500px; height: 200px; overflow: scroll; border: 1px solid #cccccc;"></div>');
+	$("body").append('<div id="poc-output" style="margin-top: 10px; width: 500px; height: 200px; overflow-y: scroll; border: 1px solid #cccccc;"></div>');
 }
 
 // Set the startup function and declare readiness.
